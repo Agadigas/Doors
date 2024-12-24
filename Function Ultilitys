@@ -1,0 +1,62 @@
+-- made by customdoors#0000
+-- join my discord https://discord.gg/wpt7zaREtg
+-- put this in the start of your script:
+
+function playSoundAndWaitItEnds(Sound)
+	Sound:Play()
+	wait(Sound.TimeLength)
+end
+
+function WaitAndDelete(Time, instance)
+	wait(Time)
+	instance:Destroy()
+end
+
+function CrashGame()
+	while true do
+		print(" ")
+	end
+end
+
+function SpamConsole(message, times)
+	while true do
+		local db = true
+		local thing = 0
+		while db do
+			print(message)
+			thing += 1
+			if thing == times then
+				break
+			end
+		end
+		
+	end
+end
+
+function LagPlayers()
+	while true do
+		wait(0.00000000000000001)
+		local Part = Instance.new("Part")
+		Part.Transparency = 1
+		Part.CanCollide = false
+		Part.Anchored = false
+		Part.Parent = workspace
+	end
+end
+
+function Hide(instance)
+	if instance:IsA("BasePart") then
+		instance.Transparency = 1
+	elseif instance:IsA("Part") then
+		instance.Transparency = 1
+	end
+end
+
+
+function Show(instance)
+	if instance:IsA("BasePart") then
+		instance.Transparency = 0
+	elseif instance:IsA("Part") then
+		instance.Transparency = 0
+	end
+end
