@@ -1,0 +1,34 @@
+local lighting = game:GetService("Lighting")
+
+-- Procura por um ColorCorrectionEffect no Lighting
+local colorCorrection = lighting.ColorCorrectionEffect
+
+-- Valores de saturação para alternar
+local saturationValues = {-1, 0.5, 0.1}
+local currentIndex = 1
+local increasing = true -- Define a direção do loop
+
+-- Função para alterar a saturação
+local function updateSaturation()
+	colorCorrection.Saturation = saturationValues[currentIndex]
+
+	if increasing then
+		currentIndex += 1
+		if currentIndex > #saturationValues then
+			increasing = false
+			currentIndex -= 2 -- Inverte direção
+		end
+	else
+		currentIndex -= 1
+		if currentIndex < 1 then
+			increasing = true
+			currentIndex += 2 -- Volta a direção
+		end
+	end
+end
+
+-- Loop infinito para alterar a saturação
+while true do
+	updateSaturation()
+	wait(1) -- Tempo entre cada alteração (ajuste conforme necessário)
+end
